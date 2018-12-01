@@ -1,16 +1,11 @@
 package day1
 
-import fileoperations.readFile
-import kotlin.streams.toList
+import fileoperations.readFileAndParseToInt
 
 fun main(args: Array<String>) {
-    val frequencies = readFile("src/day1/input.txt")
+    val coefficients = readFileAndParseToInt("src/day1/input.txt")
 
-    calculateFrequency(frequencies)
-
-    val coefficients = frequencies.stream()
-        .map { frequency -> Integer.valueOf(frequency) }
-        .toList()
+    calculateFrequency(coefficients)
 
     findTwiceFrequency(coefficients)
 }
@@ -31,7 +26,7 @@ fun findTwiceFrequency(coefficients: List<Int>) {
                         .subList(0, loopCounter * coefficients.size + index)
                         .contains(currentSum)
                 ) {
-                    println("Step 2. Twice for frequency: $currentSum")
+                    println("Step 2. Twice frequency: $currentSum")
                     return
                 }
             }
@@ -39,7 +34,7 @@ fun findTwiceFrequency(coefficients: List<Int>) {
     }
 }
 
-fun calculateFrequency(frequencies: List<String>) {
-    val resultFrequency = frequencies.sumBy { frequency -> Integer.valueOf(frequency) }
-    println("Step 1. Result frequency: $resultFrequency")
+fun calculateFrequency(frequencies: List<Int>) {
+    val resultFrequency = frequencies.sum()
+    println("Step 1. Frequency: $resultFrequency")
 }
