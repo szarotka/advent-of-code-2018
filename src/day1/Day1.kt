@@ -10,6 +10,11 @@ fun main(args: Array<String>) {
     findTwiceFrequency(coefficients)
 }
 
+fun calculateFrequency(frequencies: List<Int>) {
+    val resultFrequency = frequencies.sum()
+    println("Step 1. Frequency: $resultFrequency")
+}
+
 fun findTwiceFrequency(coefficients: List<Int>) {
     var currentSum = 0
     var historyOfFrequency = mutableListOf<Int>()
@@ -32,9 +37,4 @@ fun findTwiceFrequency(coefficients: List<Int>) {
             }
         loopCounter++
     }
-}
-
-fun calculateFrequency(frequencies: List<Int>) {
-    val resultFrequency = frequencies.sum()
-    println("Step 1. Frequency: $resultFrequency")
 }
